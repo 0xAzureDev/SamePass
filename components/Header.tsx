@@ -1,12 +1,42 @@
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 const Header: FC = () => {
-  const githubLink = () => {
-    window.open('https://github.com/0xAzureDev/SamePass', '_blank');
+  const format = {
+    text: '',
+    content: '',
   }
-  const listLink = () => {
-    // TODO: Dropdown for previous copied to clipboard
+  const [copied, setCopied] = useState(format)
+
+  const data = [
+    'NWY!0dTVqMWowbjZsM#3',
+    'NHQzMzV@2MXUyZzJ%4M@',
+    'MXIzZDR&5MjM$1azQ$1N',
+    'NzA$1eTNrMGs@2azRpMW',
+  ]
+
+  const githubLink = () => {
+    window.open('https://github.com/0xAzureDev/SamePass', '_blank')
+  }
+
+  const copyToClipboard = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const content = (event.target as HTMLAnchorElement).innerText.replace(
+      'Copied!',
+      ''
+    )
+
+    const copiedFormat = {
+      text: 'Copied!',
+      content: content,
+    }
+
+    navigator.clipboard.writeText(content)
+
+    setCopied(copiedFormat)
+
+    setTimeout(() => {
+      setCopied(format)
+    }, 1000)
   }
 
   return (
@@ -18,22 +48,40 @@ const Header: FC = () => {
       </div>
       {/* SIDE LOGOS */}
       <div className="header__items header__right">
-        <Image
-          className="global__pointer"
-          src="/icons/list.svg"
-          alt="List"
-          width={24}
-          height={24}
-          onClick={listLink}
-        />
-        <Image
-          className="global__pointer"
-          src="/icons/github.svg"
-          alt="Github"
-          width={24}
-          height={24}
-          onClick={githubLink}
-        />
+        <div className="header__dropdown">
+          <Image
+            className="global__pointer"
+            src="/icons/list.svg"
+            alt="List"
+            width={24}
+            height={24}
+          />
+          <div className="header__dropdown-content global__pointer">
+            {data.map((entry) => {
+              return (
+                <a onClick={copyToClipboard} key={entry}>
+                  <div
+                    className="header__dropdown-content__copied global__bg-secondary-color"
+                    style={copied.content === entry && copied ? { backgroundColor: 'black' } : {}}
+                  >
+                    {copied.content === entry && copied.text}
+                  </div>
+                  {entry}
+                </a>
+              )
+            })}
+          </div>
+        </div>
+        <div>
+          <Image
+            className="global__pointer"
+            src="/icons/github.svg"
+            alt="Github"
+            width={24}
+            height={24}
+            onClick={githubLink}
+          />
+        </div>
       </div>
     </div>
   )
