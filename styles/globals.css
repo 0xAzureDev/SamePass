@@ -81,9 +81,6 @@
   border-radius: 27px;
 }
 
-/* .entry__icon-image {
-} */
-
 .entry__divider {
   margin: 12px;
 }
@@ -115,4 +112,34 @@
 
 .entry__content::-ms-input-placeholder {
   color: red;
+}
+
+/* === */
+/*
+  320px  —  480px: Mobile devices
+  481px  —  768px: iPads, Tablets
+  769px  —  1024px: Small screens, laptops
+  1025px  —  1200px: Desktops, large screens
+  1201px +:  Extra large screens, TV
+ */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .header__left {
+    padding-left: calc(100vw / (12 / 1));
+  }
+
+  .header__right {
+    padding-right: calc(100vw / (12 / 1));
+  }
+
+  .entry__container {
+    width: 320px;
+  }
+}
+
+/* === */
+
+@media screen and (max-width: 320px) {
+  * {
+    display: none;
+  }
 }

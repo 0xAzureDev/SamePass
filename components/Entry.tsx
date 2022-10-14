@@ -13,7 +13,7 @@ const Entry: FC<Props> = ({ logo, heading, placeholder, type, saveContent }) => 
   return (
     <div className="entry__container">
       <Image
-        className="entry__icon-image global__bg-secondary-color"
+        className="global__bg-secondary-color"
         src={`/icons/${logo}`}
         alt={`${heading} logo`}
         width={35}

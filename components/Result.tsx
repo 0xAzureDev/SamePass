@@ -24,7 +24,7 @@ const Result: FC<Props> = ({ logo, placeholder, encrypted }) => {
   return (
     <div className="entry__container">
       <Image
-        className="entry__icon-image global__bg-secondary-color global__pointer"
+        className="global__bg-secondary-color global__pointer"
         src={`/icons/${logo}`}
         alt={`${logo} logo`}
         width={35}

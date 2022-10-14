@@ -43,7 +43,7 @@ const Form: FC = () => {
       <Entry
         logo="user.svg"
         heading="Email"
-        placeholder="0xAzureDev@samepass.com"
+        placeholder="contact@samepass.com"
         saveContent={dispatchEmail}
       />
 
