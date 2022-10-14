@@ -5,14 +5,14 @@ export interface BlurState {
   email: string
   password: string
   domain: string
-  encrypted: string
+  prevPasswords: string[]
 }
 
 const initialState: BlurState = {
   email: '',
   password: '',
   domain: '',
-  encrypted: '',
+  prevPasswords: [],
 }
 
 export const dataSlice = createSlice({
@@ -28,14 +28,18 @@ export const dataSlice = createSlice({
     setDomain: (state, action: PayloadAction<string>) => {
       state.domain = action.payload
     },
-    setEncrypted: (state, action: PayloadAction<string>) => {
-      state.encrypted = action.payload
+    setPrevPasswords: (state, action: PayloadAction<string>) => {
+      const index = state.prevPasswords.indexOf(action.payload)
+
+      if (index > -1) state.prevPasswords.splice(index, 1)
+
+      state.prevPasswords.push(action.payload)
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setEmail, setPassword, setDomain, setEncrypted } =
+export const { setEmail, setPassword, setDomain, setPrevPasswords } =
   dataSlice.actions
 
 export default dataSlice.reducer

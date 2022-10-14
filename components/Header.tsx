@@ -1,10 +1,13 @@
 import Image from 'next/image'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
+import { store } from '../store/store'
 import { CopiedDataEmptyState, CopiedDataInterface } from '../types/index'
 
 const Header: FC = () => {
   const [copied, setCopied] =
     useState<CopiedDataInterface>(CopiedDataEmptyState)
+
+  const [prevPasswords, setPrevPasswords] = useState<string[]>([])
 
   const data = [
     'NWY!0dTVqMWowbjZsM#3',
@@ -12,6 +15,16 @@ const Header: FC = () => {
     'MXIzZDR&5MjM$1azQ$1N',
     'NzA$1eTNrMGs@2azRpMW',
   ]
+
+  useEffect(() => {
+    return store.subscribe(update)
+  }, [])
+
+  const update = () => {
+    const prev = store.getState().data.prevPasswords
+
+    if (prev) setPrevPasswords(prev)
+  }
 
   const githubLink = () => {
     window.open('https://github.com/0xAzureDev/SamePass', '_blank')
@@ -55,7 +68,7 @@ const Header: FC = () => {
             height={24}
           />
           <div className="header__dropdown-content global__pointer">
-            {data.map((entry) => {
+            {prevPasswords.map((entry) => {
               return (
                 <a onClick={copyToClipboard} key={entry}>
                   <div

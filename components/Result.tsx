@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import { FC, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setPrevPasswords } from '../store/dataSlice'
 
 interface Props {
   logo: string
@@ -9,10 +11,16 @@ interface Props {
 }
 
 const Result: FC<Props> = ({ logo, placeholder, encrypted }) => {
+  const dispatch = useDispatch()
+
   const [copied, setCopied] = useState('')
 
   const copyToClipboard = () => {
-    if (encrypted) navigator.clipboard.writeText(encrypted)
+    if (!encrypted) return
+
+    navigator.clipboard.writeText(encrypted)
+
+    dispatch(setPrevPasswords(encrypted))
 
     setCopied('Copied!')
 
