@@ -1,12 +1,10 @@
 import Image from 'next/image'
 import { FC, useState } from 'react'
+import { CopiedDataEmptyState, CopiedDataInterface } from '../types/index'
 
 const Header: FC = () => {
-  const format = {
-    text: '',
-    content: '',
-  }
-  const [copied, setCopied] = useState(format)
+  const [copied, setCopied] =
+    useState<CopiedDataInterface>(CopiedDataEmptyState)
 
   const data = [
     'NWY!0dTVqMWowbjZsM#3',
@@ -25,7 +23,7 @@ const Header: FC = () => {
       ''
     )
 
-    const copiedFormat = {
+    const copiedFormat: CopiedDataInterface = {
       text: 'Copied!',
       content: content,
     }
@@ -35,7 +33,7 @@ const Header: FC = () => {
     setCopied(copiedFormat)
 
     setTimeout(() => {
-      setCopied(format)
+      setCopied(CopiedDataEmptyState)
     }, 1000)
   }
 
@@ -62,7 +60,11 @@ const Header: FC = () => {
                 <a onClick={copyToClipboard} key={entry}>
                   <div
                     className="header__dropdown-content__copied global__bg-secondary-color"
-                    style={copied.content === entry && copied ? { backgroundColor: 'black' } : {}}
+                    style={
+                      copied.content === entry && copied
+                        ? { backgroundColor: 'black' }
+                        : {}
+                    }
                   >
                     {copied.content === entry && copied.text}
                   </div>
