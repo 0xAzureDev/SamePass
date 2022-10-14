@@ -14,7 +14,7 @@ const Result: FC<Props> = ({ logo, placeholder, encrypted }) => {
   const copyToClipboard = () => {
     if (encrypted) navigator.clipboard.writeText(encrypted)
 
-    setCopied('Copied')
+    setCopied('Copied!')
 
     setTimeout(() => {
       setCopied('')
