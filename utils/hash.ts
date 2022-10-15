@@ -8,7 +8,7 @@ export const hash = async (x: string, length = 20) => {
     .map((bytes) => bytes.toString(36).padStart(2, '0'))
     .join('')
 
-  const base64Long = btoa(hashHex)
+  const base64Long = btoa(hashHex).substring(1)
   let finalPass: string = ''
 
   base64Long.split('').forEach(function (char: string) {

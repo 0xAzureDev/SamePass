@@ -61,7 +61,7 @@ const Header: FC = () => {
             height={24}
           />
           <div className="header__dropdown-content global__pointer">
-            {prevPasswords.map((entry) => {
+            {prevPasswords.map((entry: string) => {
               return (
                 <a onClick={copyToClipboard} key={entry}>
                   <div
