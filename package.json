@@ -1,7 +1,14 @@
 {
   "name": "samepass",
   "version": "0.1.0",
-  "private": true,
+  "description": "Use the same password for every website? randomise the password with SamePass.",
+  "author": "0xAzureDev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xAzureDev/samepass.git"
+  },
+  "homepage": "https://github.com/0xAzureDev/samepass#readme",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,14 +17,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
-    "bcryptjs": "^2.4.3",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.4"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.2",
     "@types/node": "18.8.4",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",

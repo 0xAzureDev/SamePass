@@ -9,13 +9,6 @@ const Header: FC = () => {
 
   const [prevPasswords, setPrevPasswords] = useState<string[]>([])
 
-  const data = [
-    'NWY!0dTVqMWowbjZsM#3',
-    'NHQzMzV@2MXUyZzJ%4M@',
-    'MXIzZDR&5MjM$1azQ$1N',
-    'NzA$1eTNrMGs@2azRpMW',
-  ]
-
   useEffect(() => {
     return store.subscribe(update)
   }, [])
