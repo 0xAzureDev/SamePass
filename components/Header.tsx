@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FC, useEffect, useState } from 'react'
 import { store } from '../store/store'
 import { CopiedDataEmptyState, CopiedDataInterface } from '../types/index'
@@ -46,13 +47,13 @@ const Header: FC = () => {
     <div className="header__container">
       {/* HEADER LOGO */}
       <div className="header__items header__left">
-        <img src="icons/key.svg" alt="Key" width={24} height={24} />
+        <Image src="icons/key.svg" alt="Key" width={24} height={24} />
         <h2 className="header__left-items__h2">SamePass</h2>
       </div>
       {/* SIDE LOGOS */}
       <div className="header__items header__right">
         <div className="header__dropdown">
-          <img
+          <Image
             className="global__pointer"
             src="icons/list.svg"
             alt="List"
@@ -80,7 +81,7 @@ const Header: FC = () => {
           </div>
         </div>
         <div>
-          <img
+          <Image
             className="global__pointer"
             src="icons/github.svg"
             alt="Github"
