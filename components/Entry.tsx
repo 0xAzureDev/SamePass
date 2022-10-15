@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FC } from 'react'
 
 interface Props {
@@ -9,15 +8,19 @@ interface Props {
   saveContent: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Entry: FC<Props> = ({ logo, heading, placeholder, type, saveContent }) => {
+const Entry: FC<Props> = ({
+  logo,
+  heading,
+  placeholder,
+  type,
+  saveContent,
+}) => {
   return (
     <div className="entry__container">
-      <Image
+      <img
         className="global__bg-secondary-color"
         src={`/icons/${logo}`}
         alt={`${heading} logo`}
-        width={35}
-        height={35}
       />
       <p className="entry__divider global__bg-secondary-color global__grey-color">
         |

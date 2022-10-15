@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setPrevPasswords } from '../store/dataSlice'
@@ -31,7 +30,7 @@ const Result: FC<Props> = ({ logo, placeholder, encrypted }) => {
 
   return (
     <div className="entry__container">
-      <Image
+      <img
         className="global__bg-secondary-color global__pointer"
         src={`/icons/${logo}`}
         alt={`${logo} logo`}
