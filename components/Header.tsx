@@ -46,7 +46,7 @@ const Header: FC = () => {
     <div className="header__container">
       {/* HEADER LOGO */}
       <div className="header__items header__left">
-        <img src="/icons/key.svg" alt="Key" width={24} height={24} />
+        <img src="icons/key.svg" alt="Key" width={24} height={24} />
         <h2 className="header__left-items__h2">SamePass</h2>
       </div>
       {/* SIDE LOGOS */}
@@ -54,7 +54,7 @@ const Header: FC = () => {
         <div className="header__dropdown">
           <img
             className="global__pointer"
-            src="/icons/list.svg"
+            src="icons/list.svg"
             alt="List"
             width={24}
             height={24}
@@ -82,7 +82,7 @@ const Header: FC = () => {
         <div>
           <img
             className="global__pointer"
-            src="/icons/github.svg"
+            src="icons/github.svg"
             alt="Github"
             width={24}
             height={24}

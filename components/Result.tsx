@@ -32,7 +32,7 @@ const Result: FC<Props> = ({ logo, placeholder, encrypted }) => {
     <div className="entry__container">
       <img
         className="global__bg-secondary-color global__pointer"
-        src={`/icons/${logo}`}
+        src={`icons/${logo}`}
         alt={`${logo} logo`}
         width={35}
         height={35}
